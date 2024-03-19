@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-/* Get courts page. */
+/* GET courts page. */
 router.get('/', (req, res) => {
     res.render('court.hbs');
 });
