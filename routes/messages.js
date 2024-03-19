@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET messages page. */
 router.get('/', (req, res) => {
-    res.render('message.hbs');
+    res.render('messages/index.hbs');
 });
 
 module.exports = router;

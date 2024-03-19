@@ -3,7 +3,7 @@ const router = express.Router();
 
 /* GET tournaments page. */
 router.get('/', (req, res) => {
-    res.render('tournament.hbs');
+    res.render('tournaments/index.hbs');
 });
 
 module.exports = router;
