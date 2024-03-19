@@ -1,0 +1,36 @@
+{
+  "name": "webproject14",
+  "version": "1.0.0",
+  "description": "Projet Web Gr 14, 2024",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhyRoX/WebProject14.git"
+  },
+  "author": "ELBERAICHI Zakaria, MAN SHRESTHA Ashutosh, YUMER Enes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhyRoX/WebProject14/issues"
+  },
+  "homepage": "https://github.com/WhyRoX/WebProject14#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^9.4.3",
+    "bootstrap": "^5.3.3",
+    "express": "^4.18.3",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0",
+    "path": "^0.12.7",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express-session": "^1.17.3",
+    "multer": "^1.4.5-lts.1",
+    "validator": "^13.9.0"
+
+  }
+}

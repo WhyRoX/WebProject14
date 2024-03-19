@@ -1,0 +1,10 @@
+/* Layout */
+
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+footer #credits {
+    text-align: center;
+}
