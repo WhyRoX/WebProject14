@@ -1,10 +1,22 @@
 /* Layout */
 
 .navbar {
-    width: 3646px;
-    height: 105px;
-    flex-shrink: 0;    
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header{
+    background: #E4EDD8;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+  }
+  
+  .navbar a:last-child {
+    margin-right: 0;
+  }
 
 footer {
     display: flex;
