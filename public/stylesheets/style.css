@@ -1,5 +1,11 @@
 /* Layout */
 
+.navbar {
+    width: 3646px;
+    height: 105px;
+    flex-shrink: 0;    
+}
+
 footer {
     display: flex;
     flex-direction: column;
