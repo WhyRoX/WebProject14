@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Karma', serif;
+}
+
+
 /* Layout */
 .container-fluid {
   padding: 0 !important;
@@ -6,13 +13,24 @@
 #navbar-layout{
   background: #E4EDD8;
 }
-.navbar a {
-  text-decoration: none;
-  color: black;
+.navbar ul li a {
+  font-size: 24px;
+  line-height: normal;
+  color: #000;
+}
+.navbar ul li a:hover{
+    color: #14a0e0;
+    text-decoration: underline;
 }
 
 li.nav-item {
-  margin: 2px 100px 0px 15px;
+  margin: 0px 100px 0px 15px;
+}
+
+#navbarSupportedContent {
+  margin-left: 1%;
+  font-size: 15px;
+  letter-spacing: 1px;
 }
 
 
@@ -26,3 +44,6 @@ footer {
 footer #credits {
     text-align: center;
 }
+
+
+
