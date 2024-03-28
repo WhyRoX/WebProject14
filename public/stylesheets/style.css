@@ -1,22 +1,22 @@
 /* Layout */
+.container-fluid {
+  padding: 0 !important;
+}
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  header{
-    background: #E4EDD8;
-  }
-  .navbar a {
-    text-decoration: none;
-    color: black;
-    margin: 0 15px;
-  }
-  
-  .navbar a:last-child {
-    margin-right: 0;
-  }
+#navbar-layout{
+  background: #E4EDD8;
+}
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+li.nav-item {
+  margin: 2px 100px 0px 15px;
+}
+
+
+
 
 footer {
     display: flex;

@@ -14,37 +14,42 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 </head>
-<header>
-    <a>
-
-    <img src="images/bannière.png"  height="150" width="100%">
-
-    </a>
-    <section class="navbar">
-<<<<<<< Updated upstream
-        <a href="tournaments/index.hbs">Tournoi</a>
-        <a href="courts/index.hbs">Terrains</a>
-        <a href="coaches/index.hbs">Coachs</a>
-=======
-        <a href="">Tournoi</a>
-        <a href="">Terrains</a>
-        <a href="">Coachs</a>
-        <div class="login">
->>>>>>> Stashed changes
-        <a href="">Se connecter</a>
-        <h6>|</h6>
-        <a href="">S'enregistrer </a>
+<body class="container-fluid">
+    <header class="container-fluid">
+        <div class="header-image">
+            <img src="images/bannière.png" width="100%" height="150px" alt="header image">
         </div>
-        
+    </header>
+    <nav id="navbar-layout" class="navbar navbar-expand-md sticky-top">
+        <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tournaments">Tournois</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/courts">Terrains</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/coaches">Coachs</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-md-0 me-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/register">S'enregistrer</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 
-            
-
-    </section>
-</header>
-    
-
-    <footer class="container-fluid">
+    {{{body}}}
+    <footer class="container-fluid">    
         <p id="credits">
             Copyright 2024 - Vinci Court | Tous droits réservés. La reproduction non autorisée du contenu de ce site est strictement interdite. 
     </footer>
