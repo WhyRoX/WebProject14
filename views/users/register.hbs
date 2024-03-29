@@ -11,19 +11,19 @@
 						<p><span>You ready to play?</span></p>
 					</div>
 				</div>
-				<form class="form-detail" action="#" method="post" id="myform">
+				<form class="form-detail" action="/users/add" method="post" id="myform">
 					<h2>Registration Form</h2>
 					<div class="form-row">
 						<label for="full-name">Nom:</label>
-						<input type="text" name="full_name" id="full_name" class="input-text">
+						<input type="text" name="surname" id="surname" class="input-text">
 					</div>
 					<div class="form-row">
 						<label for="full-name">Prénom:</label>
-						<input type="text" name="full_name" id="full_name" class="input-text">
+						<input type="text" name="firstname" id="firstname" class="input-text">
 					</div>
 					<div class="form-row">
 						<label for="your_email">E-mail:</label>
-						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+						<input type="text" name="email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 					</div>
 					<div class="form-row">
 						<label for="password">Mot de passe:</label>
@@ -33,6 +33,7 @@
 						<label for="comfirm-password">Confirmez votre mot de passe:</label>
 						<input type="password" name="confirm_password" id="confirm_password" class="input-text" required>
 					</div>
+					<input type="hidden" name="status" value="regular">
 				
 					<div class="form-row-last">
 						<input type="submit" name="register" class="register" value="S'enregistrer">

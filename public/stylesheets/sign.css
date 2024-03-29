@@ -3,17 +3,15 @@
 .page-content {
 	width: 100%;
 	margin:  0 auto;
-	background-image: -moz-linear-gradient( 136deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
-    background-image: -webkit-linear-gradient( 136deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 30%, rgb(255, 255, 255) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 	display: flex;
 	display: -webkit-flex;
 	justify-content: center;
 	align-items: center;
+    background-color: #FBFEF8;
 }
 
 .form-v2-content  {
-	background: #fff;
+	background: #fdfffc;
 	width: 900px;
 	border-radius: 15px;
 	margin: 100px 0;
