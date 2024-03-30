@@ -5,5 +5,8 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res.render('messages/index.hbs');
 });
+router.get('/respond', (req, res) => {
+    res.render('messages/index.hbs');
+});
 
 module.exports = router;
