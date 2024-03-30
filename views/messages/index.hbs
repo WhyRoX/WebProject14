@@ -1,3 +1,31 @@
 <main>
-    <h1>Messages pour les Coachs</h1>
-</main>
+        <div class="message">
+            <div class="expediteur">Expéditeur: Jean</div>
+            <div class="objet">Objet: Prochain entraînement</div>
+            <div class="contenu">
+                Bonjour Pierre, est-ce que l'entraînement de demain est maintenu malgré les prévisions météorologiques défavorables ?
+            </div>
+            <div class="repondre">
+                <h2>Répondre:</h2>
+                <form action="/coaches/repondre" method="POST">
+                    <textarea id="reponse" name="reponse" rows="4" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        <div class="message">
+            <div class="expediteur">Expéditeur: Marie</div>
+            <div class="objet">Objet: Résultats du dernier tournoi</div>
+            <div class="contenu">
+                Salut Pierre, je voulais discuter avec toi des résultats du dernier tournoi. Est-ce que tu as un moment pour en parler ?
+            </div>
+            <div class="repondre">
+                <h2>Répondre:</h2>
+                <form action="/coaches/repondre" method="POST">
+                    <textarea id="reponse" name="reponse" rows="4" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        <!-- Ajoutez plus de messages au besoin -->
+    </main>
