@@ -7,6 +7,20 @@ const hbs = require('hbs');
 // Use of sessions
 const session = require('express-session');
 
+
+/**
+ * The {{translateFlooring}} helper translates flooring types.
+ */
+hbs.registerHelper('translateFlooring', function(flooring_type) {
+  const translations = {
+      'artificial': 'Artificiel',
+      'clay': 'Terre battue',
+      'grass': 'Herbe',
+      // Add more translations needed
+  };
+
+  return translations[flooring_type] || flooring_type;
+});
 /**
  * The {{#exists}} helper checks if a variable is defined.
  */

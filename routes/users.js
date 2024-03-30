@@ -16,13 +16,18 @@ router.get('/login', (req, res) => {
 });
 
 /* POST user login page. */
-router.post("/login/connect", (req, res) => {
-    if (bcrypt.compareSync(req.body.password, User.login(req.body.email))) {
+router.post("/login", (req, res) => {
+    const storedPassword = User.login(req.body.email);
+    if (storedPassword && bcrypt.compareSync(req.body.password, storedPassword)) {
         req.session.connected = true;
         req.session.user = User.data(req.body.email);
         res.redirect("/");
     } else {
-        req.session.errors = "Mot de passe incorrect";
+        if (!storedPassword) {
+            req.session.errors = "Email incorrect";
+        } else {
+            req.session.errors = "Mot de passe incorrect";
+        }
         res.redirect("/users/login");
     }
 });
