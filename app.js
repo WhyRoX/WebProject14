@@ -57,10 +57,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // Get static files fro
 // use of sessions
 app.use(session({ secret: "Your secret key", resave: false, saveUninitialized: false }));
 // use of session variables in views via res.locals
-app.use(function (req, res, next) {
-  res.locals.session = req.session;
-  next();
-});
+app.use(function (req, res, next) { res.locals.session = req.session; next(); });
 
 
 // Controller calls

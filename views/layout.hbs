@@ -41,6 +41,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/tournaments">Tournois</a>
                     </li>
+                    {{#if (eq session.user.status "coach")}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tournaments">Créer un tournoi</a>
+                    </li>
+                    {{/if}}
                     <li class="nav-item">
                         <a class="nav-link" href="/courts">Terrains</a>
                     </li>
@@ -49,12 +54,30 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex flex-row">
+                    {{#if (eq session.connected true)}}
+                    {{#if (eq session.user.status "coach")}}
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/messages">Messages</a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/coaches">Profile</a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/courts/booking">Réserver un terrain</a>
+                    </li>    
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/users/logout">Se déconnecter</a>
+                    </li>
+                    {{else}}    
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="/users/login">Se connecter</a>
                     </li>
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="/users/register">S'enregistrer</a>
                     </li>
+                    {{/if}}
+
                 </ul>
             </div>
         </div>
@@ -63,7 +86,7 @@
     {{{body}}}
     <footer class="container-fluid">    
         <p id="credits">
-            <strong>©C2024 - Vinci Court</strong>  | Tous droits réservés. La reproduction non autorisée du contenu de ce site est strictement interdite. 
+            <strong>©2024 - Vinci Court</strong>  | Tous droits réservés. La reproduction non autorisée du contenu de ce site est strictement interdite. 
     </footer>
 </body>
 

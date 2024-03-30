@@ -44,6 +44,7 @@ footer {
 footer #credits {
     text-align: center;
 }
+
 .bioImage {
   float: left; /* ou 'right' selon la position souhaitée de l'image */
   padding-top: 50px;
@@ -159,5 +160,4 @@ h1 {
 .coach h2 {
     margin-top: 0;
 }
-
 
