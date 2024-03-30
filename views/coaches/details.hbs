@@ -1,0 +1,45 @@
+<main>
+    <section>
+        <div class="bioImage">
+            <img src="/images/bio.png" height="800" width="250" alt="">
+        </div>
+        <div class="titre-bio-page">
+            <h1>Maître du Court : La Passion et la Précision de Pierre</h1>
+        </div>
+        <div class="biotext">
+            <h4>Pierre, coach de tennis d'exception, allie une passion inébranlable pour le jeu à une approche pédagogique innovante. Avec plus de 15 ans d'expérience, il sculpte les compétences de ses élèves avec précision et motivation. Sa devise : cultiver le talent, nourrir la détermination, et  construire des champions. Les séances avec Pierre sont une immersion jusqu’à la  dans un monde où chaque swing est une chance de se transcender. Optez pour Pierre et entrez dans une aventure où le jeu devient art et l'apprentissage, une quête vers l'excellence.” </h4>
+        </div>
+
+        
+        <!-- Formulaire de contact modifié -->
+        <div class="container" style="background: rgba(191, 213, 183, 0.63);">
+            <h2>Contactez Notre Coach</h2>
+            <form action="formulaire" method="POST">
+                <div class="form-group">
+                    <label for="coach">Sélectionnez Un coach :</label>
+                    <select id="coach" name="coach" required>
+                        <option value="" selected disabled>Sélectionnez Un coach</option>
+                        <option value="pierre@example.com">Pierre</option>
+                        <option value="jean@example.com">Jean</option>
+                        <option value="marie@example.com">Marie</option>
+                        <!-- Ajoutez d'autres options au besoin -->
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label for="objet">Objet :</label>
+                    <input type="text" id="objet" name="objet" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message :</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="jointure">Inclure une pièce jointe  :</label>
+                    <input type="file" id="jointure" name="jointure">
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+        <!-- Fin du formulaire de contact modifié -->
+    </section>
+</main>

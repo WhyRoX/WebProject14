@@ -6,4 +6,5 @@ router.get('/', (req, res) => {
     res.render('courts/index.hbs');
 });
 
+
 module.exports = router;
