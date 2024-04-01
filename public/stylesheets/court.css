@@ -71,6 +71,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .modify-button:hover {
@@ -108,7 +109,7 @@
     line-height: normal;
     font-family: Karma;
     border: none;
-    
+    text-decoration: none;
 }
 
 .button-details:hover {

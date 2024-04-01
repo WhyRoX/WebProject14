@@ -4,7 +4,7 @@
             <table class="court-details">
                 <tr>
                     {{#if (eq session.user.status "coach")}}
-                    <td><button class="button-details">Mettre à jour</button></td>
+                    <td><a href="/courts/update?court_id={{court_id}}" class="button-details">Mettre à jour</a></td>
                     {{else}}
                     <td></td> <!-- Empty cell for spacing -->
                     {{/if}}

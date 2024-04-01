@@ -1,3 +1,90 @@
 <main>
-    up
+    <section class="form-holder">
+    <form action="/courts/update" method="post" enctype="multipart/form-data" class="form-update border p-4">
+      <h2 class="title-update">Mettre à jour le terrain</h2>
+      <fieldset>
+        <input type="hidden" name="court_id" value="{{court.court_id}}">
+        <div class="form-group">
+          <label for="court-name" class="title-in-update">Nom :</label>
+          <input class="form-control input-court-name" type="text" id="name" name="name" placeholder="Nom" value="{{court.name}}">
+        </div>
+        
+        <div class="form-group">
+          <label for="flooring-type" class="title-in-update">Revêtement :</label>
+          <select class="form-control input-flooring-type" id="flooring_type" name="flooring_type">
+            <option value="grass" {{#if (eq court.flooring_type "grass")}}selected{{/if}}>Herbe</option>
+            <option value="clay" {{#if (eq court.flooring_type "clay")}}selected{{/if}}>Terre Battue</option>
+            <option value="artificial" {{#if (eq court.flooring_type "artificial")}}selected{{/if}}>Artificiel</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="location" class="title-in-update">Emplacement :</label>
+          <input class="form-control input-location" type="text" id="location" name="location" placeholder="Emplacement" value="{{court.location}}">
+        </div>
+        
+        <div class="form-group">
+          <label for="picture" class="title-in-update">Image :</label>
+          <input class="form-control input-picture" type="file" id="court_image" name="court_image">
+        </div>
+  
+        <input class="btn btn-primary submit-button" type="submit" value="Mettre à jour">
+      </fieldset>
+    </form>
+  </section>
+  
+  <style>
+    .form-holder {
+        background-color: #FBFEF8;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        max-width: 600px; /* Change this value to adjust the maximum width */
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+  
+    .title-update {
+      color: #000;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .title-in-update {
+      color: #000;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  
+    .input-court-name,
+    .input-flooring-type,
+    .input-location,
+    .input-picture {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+  
+    .submit-button {
+      width: 100%;
+      padding: 10px;
+      background-color: #006a4e8e;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    .submit-button:hover {
+      background-color: orange;
+    }
+  </style>
+  
 </main>

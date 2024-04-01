@@ -27,12 +27,12 @@
                     <tbody>
                         {{#each courts}}
                         <tr class="court-item">
-                            <td><a style ="color : orange;  font-weight: bold"href="/courts/details?court_id={{court_id}}">{{name}}</td>
+                            <td><a style ="color : orange;  font-weight: bold" href="/courts/details?court_id={{court_id}}">{{name}}</a></td>
                             <td>{{translateFlooring flooring_type}}</td>
                             {{#if (eq ../session.user.status "coach")}}
-                            <td><button class="modify-button">Mettre à jour</button></td>
-                            {{/if}}                        
-                        </tr>
+                            <td><a href="/courts/update?court_id={{court_id}}" class="modify-button">Mettre à jour</a></td> 
+                            {{/if}}
+                            </tr>
                         {{/each}}
                     </tbody>
                 </table>
