@@ -161,3 +161,10 @@ h1 {
     margin-top: 0;
 }
 
+.bioupdate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px; /* ajustez la taille du padding selon vos besoins */
+  font-size: 14px; /
+}
