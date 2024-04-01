@@ -1,3 +1,38 @@
 <main>
-    det
+    <body>
+        <div class="court-body">
+            <table class="court-details">
+                <tr>
+                    {{#if (eq session.user.status "coach")}}
+                    <td><button class="button-details">Mettre à jour</button></td>
+                    {{else}}
+                    <td></td> <!-- Empty cell for spacing -->
+                    {{/if}}
+                    <td><h1 class="court-details-titles">{{court.name}}</h1></td>
+                    {{#if session.connected}}
+                    <td><button class="button-details">Réserver ce terrain</button></td>
+                    {{else}}
+                    <td></td> <!-- Empty cell for spacing -->
+                    {{/if}}
+                </tr>   
+            </table>
+            <div class="container-floor-img">
+                <h2 class="court-details-titles">Surface : {{translateFlooring court.flooring_type}}</h2>
+                <img src="{{court.court_image}}" alt="Floor Image" class="floor-img">
+            </div>
+            <div class="container-loc-size">
+                <!-- Left Container -->
+                <div class="location-info">
+                    <h2 class="court-details-titles">Situé au Mounier : Terrain - {{court.location}}</h2>
+                    <img src="/images/courts/image 23.png" alt="Left Image">
+                </div>
+
+                <!-- Right Container -->
+                <div class="size-info">
+                    <h2 class="court-details-titles">Dimensions du terrain de tennis</h2>
+                    <img src="/images/courts/Court measurements.png" alt="Right Image">
+                </div>
+            </div>
+        </div>
+    </body>
 </main>

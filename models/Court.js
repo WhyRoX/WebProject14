@@ -6,7 +6,7 @@ module.exports.info = () => {
 }
 
 module.exports.findById = (court_id) => {
-    const stmt = db.prepare("SELECT * FROM courts WHERE id = ?");
+    const stmt = db.prepare("SELECT * FROM courts WHERE court_id = ?");
     return stmt.get(court_id);
 };
 

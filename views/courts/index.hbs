@@ -2,6 +2,11 @@
     <body>
         <div class="court-body">
             <div class="container-court">
+                {{#if errors}}
+                <div class="alert alert-danger" role="alert">
+                    {{errors}}
+                </div>
+                {{/if}}
                 <h1 id="court-page-title">Nos terrains de tennis</h1>
                 <h1 id="court-page-title">FIX BODY BACK COLOR "METTRE CLASS POUR COACH stylescss l129"</h1>
                 <h5 id="court-page-h5">Informations sur les cours</h5>
@@ -22,7 +27,7 @@
                     <tbody>
                         {{#each courts}}
                         <tr class="court-item">
-                            <td><a style ="color : orange;  font-weight: bold"href="/courts/details?id={{court_id}}">{{name}}</td>
+                            <td><a style ="color : orange;  font-weight: bold"href="/courts/details?court_id={{court_id}}">{{name}}</td>
                             <td>{{translateFlooring flooring_type}}</td>
                             {{#if (eq ../session.user.status "coach")}}
                             <td><button class="modify-button">Mettre à jour</button></td>
