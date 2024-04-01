@@ -63,11 +63,6 @@ const messagesRouter = require("./routes/messages.js");
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.use(session({
-  secret: 'Your secret key',
-  resave: false,
-  saveUninitialized: false
-}));
 
 app.use(logger('dev')); // Log each request
 app.use(express.urlencoded({ extended: false })); // Decode form values
