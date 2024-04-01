@@ -7,6 +7,21 @@ const hbs = require('hbs');
 // Use of sessions
 const session = require('express-session');
 
+const app = express();
+const port = 3000;
+/**
+ * The {{translateFlooring}} helper translates flooring types.
+ */
+hbs.registerHelper('translateFlooring', function(flooring_type) {
+  const translations = {
+      'artificial': 'Artificiel',
+      'clay': 'Terre battue',
+      'grass': 'Herbe',
+      // Add more translations needed
+  };
+
+  return translations[flooring_type] || flooring_type;
+});
 /**
  * The {{#exists}} helper checks if a variable is defined.
  */
@@ -42,12 +57,12 @@ const coachesRouter = require("./routes/coaches.js");
 const messagesRouter = require("./routes/messages.js");
 
 
-const app = express();
-const port = 3000;
+
 
 // Setup views folder and handlebar engine
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
 
 app.use(logger('dev')); // Log each request
 app.use(express.urlencoded({ extended: false })); // Decode form values
