@@ -1,0 +1,31 @@
+<h1>Details d'un tournoi</h1>
+
+
+<h4>{{this.unique_name}}</h4>
+
+
+<h4>Image du tournoi</h4>
+
+
+
+<table id="tableTournament">
+        <tr>
+            <th>Date</th>
+            <th>Coach qui l'a crée </th>
+            <th>Nombre maximum de participants</th>
+        </tr>
+        {{#each tournamentsTable}}
+        <tr>
+            <td>{{this.date}}</td>
+            <td>{{this.coach}} </td>
+            <td>{{this.maximum}} </td>
+        </tr>
+        {{/each}}
+        
+
+        <p>Il y'a déjà 44 inscrits..<br>
+        Ne tardez pas à vous inscrire</p>
+
+        <button value="S'incrire"></button>
+        <button value="Se désinscrire"></button>
+

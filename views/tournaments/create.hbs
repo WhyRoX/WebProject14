@@ -1,0 +1,24 @@
+<h1> Cher coach, vous avez la possibilité de créer un tournoi</h1>
+
+
+    <form method="post" action="/tournaments/create" enctype="multipart/form-data">
+        <div>
+            <label>Nom du tournoi: </label>
+            <input type="text" name="uniqueNameTournament" />
+        </div>
+         <div>
+            <label> Date du tournoi: </label>
+            <input type="number" min="2024" max="2026" step="1" value="2024" name="dateTournament" />
+        </div>
+         <div>
+            <label> Image du tournoi : </label>
+            <input type="file" name="imageTournament">
+        </div>
+         <div>
+            <label> Nombre maximum de participants: </label>
+            <input type="number" min="1" max="60" step="1" value="1" name="maxPeople" />
+        </div>
+        <div>
+            <input type="submit" value="Créer">
+        </div>
+    </form>

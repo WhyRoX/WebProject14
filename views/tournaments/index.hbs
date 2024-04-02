@@ -1,3 +1,38 @@
-<main>
-    <h1>Tournois du moment</h1>
-</main>
+<section>
+    <h1>Liste des Tournois</h1>
+
+    <p>Chaque tournoi est unique en son genre,
+    et c'est là toute sa beauté ; il est un univers à part où règnent l'excitation,
+    la compétition et l'imprévisibilité. À chaque rencontre, à chaque échange, à chaque point,
+    se cache une surprise, un moment de suspense qui fait battre les cœurs des spectateurs et des 
+    compétiteurs. Les tournois sont des théâtres où se jouent des histoires inattendues, des retournements
+    de situation époustouflants, et c'est ce qui les rend si passionnants et si mémorables.haque tournoi
+    est unique en son genre </p>
+
+
+
+    <p>Voici la liste des tournois que nous proposons</p>
+
+
+    <table>
+        <tr>
+            <th>Id du tournoi</th>
+            <th>Nom </th>
+            <th>Date</th>
+            <th>Nombre maximum de participants</th>
+        </tr>
+        {{#each tournamentsTable}}
+        <tr>
+            <td>{{this.tournament_id}}</td>
+            <td><a href="http://localhost:3000/exoplanets/details?id={{this.exoplanet_id}}"> {{this.unique_name}} </a></td>
+            <td>{{this.date}} </td>
+            <td>{{this.maximum}} </td>
+        </tr>
+        {{/each}}
+    </table>
+</section>
+
+
+
+
+<section>Création d'un tournoi</section>
