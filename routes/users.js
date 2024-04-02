@@ -1,98 +1,80 @@
 const express = require('express');
 const router = express.Router();
-
 const User = require('../models/User.js');
 const bcrypt = require('bcrypt');
-const saltRounds = 10;
 
-const validator = require('validator');
 
-/* form login / password */
-router.get('/', (req, res, next) => {
-    console.log("USERS INDEX");
-    if (req.session.login) {
-        res.redirect("/members");
-    }
-    res.render('users/index');
+/* GET user page. */
+router.get('/', (req, res) => {
+    res.render('users/index.hbs'); // Render the user page (which will be used for both login and registration)
 });
 
-/* check login and password */
-router.post('/login', (req, res, next) => {
-    console.log("USERS LOGIN");
-    // User in DB ? -> return the record of the user if found
-    const userFound = User.find(req.body.userLogin);
-    console.log("User found" + JSON.stringify(userFound));
-    if (userFound) {
-        if (userFound.active == false) {
-            req.session.errors = "Compte désactivé";
-            res.redirect('/users');
-        }
-        else {
-            if (bcrypt.compareSync(req.body.userPassword, userFound.password)) {
-                console.log("password correct");
-                req.session.login = req.body.userLogin;
-                req.session.connected = true;
-                if (userFound.admin) {
-                    req.session.admin = true;
-                    res.redirect('/admin');
-                } else {
-                    req.session.admin = false;
-                    res.redirect('/members');
-                }
-            }
-            else {
-                console.log("bad password");
-                req.session.errors = "Mot de passe incorrect";
-                res.redirect('/users');
-            }
-        }
+/* GET user login page. */
+router.get('/login', (req, res) => {
+    // Save the previous page in the session if it's not already stored
+    if (!req.session.previousPage) {
+        req.session.previousPage = req.get('Referer') || '/';
     }
-    else {
-        console.log("bad user");
-        req.session.errors = "Utilisateur inconnu";
-        res.redirect('/users');
-    }
-});
-
-router.get('/logout', (req, res, next) => {
-    console.log("USERS LOGOUT");
-    req.session.destroy();
-    res.redirect('/users');
-});
-
-router.get('/register', (req, res, next) => {
-    console.log("USERS REGISTER");
-    res.render('users/register', { errors: req.session.errors });
+    res.render('users/index.hbs', { errors: req.session.errors });
     req.session.errors = null;
-
 });
 
-router.post('/add', (req, res, next) => {
-    console.log("USERS ADD");
-    // validation 
-    let errors = [];
-    if (!validator.isLength(req.body.userName, { min: 3, max: 100 })) errors.push("Le nom doit avoir 3 caractères minimum");
-    if (!validator.isAlphanumeric(req.body.userName)) errors.push("Le nom doit contenir uniquement des caractères alphanumériques");
-    if (!validator.isLength(req.body.userFirstname)) errors.push("Le prénom doit avoir 3 caractères minimum");
-    // firstname : alphanumeric + '-'
-    if (!validator.isAlphanumeric(req.body.userFirstname, "fr-FR", { ignore: '-' })) errors.push("Le prénom doit contenir uniquement des caractères alphanumériques");
-    if (!validator.isEmail(req.body.userEmail)) errors.push("L'email entré n'est pas correct !");
-    if (!validator.isStrongPassword(req.body.userPassword, { minLength: 2, minLowercase: 0, minUppercase: 0, minNumbers: 0, minSymbols: 0, returnScore: false })) errors.push("Le mot de passe n'et pas assez fort : 2 caractères minimum, ... !");
-    if (req.body.userPassword != req.body.userPasswordConfirmation) errors.push("Les mot de passes ne correspondent pas");
-    if (User.find(req.body.userEmail)) errors.push("Email/Utilisateur déjà présent en DB");
-    if (errors.length == 0) {
-        User.save({
-            name: req.body.userName,
-            firstname: req.body.userFirstname,
-            email: req.body.userEmail,
-            password: bcrypt.hashSync(req.body.userPassword, saltRounds)
-        });
-        res.redirect('/users');
+/* POST user login page. */
+router.post("/login", (req, res) => {
+    const storedPassword = User.login(req.body.email);
+    if (storedPassword && bcrypt.compareSync(req.body.password, storedPassword)) {
+        req.session.connected = true;
+        req.session.user = User.data(req.body.email);
+        const previousPage = req.session.previousPage || "/";
+        req.session.previousPage = null;
+        res.redirect(previousPage);
+    } else {
+        if (!storedPassword) {
+            req.session.errors = "Email incorrect";
+        } else {
+            req.session.errors = "Mot de passe incorrect";
+        }
+        res.redirect("/users/login");
     }
-    else {
-        req.session.errors = errors;
-        res.redirect('/users/register');
+});
+
+
+/* GET user register page. */
+router.get('/register', (req, res) => {
+    res.render('users/register.hbs'); // Render the register page
+});
+
+/* POST user register page. */
+router.post('/add', (req, res) => {
+    const User = require('../models/User.js');
+    const firstname = req.body.firstname;
+    const surname = req.body.surname;
+    const email = req.body.email;
+    const password = bcrypt.hashSync(req.body.password, 10);
+    const status = 'regular';
+    User.save(firstname, surname, email, password, status);
+    req.session.connected = true;
+    res.redirect('/'); // Redirect to the login page
+});
+
+/* GET user logout page. */
+router.get('/logout', (req, res) => {
+    // Save the current page URL in the session
+    if (!req.session.previousPage) {
+        req.session.previousPage = req.get('Referer') || '/';
     }
+
+    // Store the previous page in a variable
+    const previousPage = req.session.previousPage;
+
+    // Destroy the session
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error destroying session:', err); // Can be removed, ask teacher
+        }
+        // Redirect the user back to the previous page URL
+        res.redirect(previousPage);
+    });
 });
 
 module.exports = router;

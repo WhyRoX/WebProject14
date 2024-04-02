@@ -1,3 +1,36 @@
 <main>
-    <h1>Se connecter - S'enregistrer</h1>
+	<body>
+		<div class="page-content">
+			<div class="form-v2-content">
+				<div class="form-left">
+					<img id="form-image"src="/images/tennis-4790436_12802.jpg" alt="form">
+					<div class="text-1">
+						<p>Join us<span>on the court</span></p>
+					</div>
+					<div class="text-2">
+						<p><span>You ready to play?</span></p>
+					</div>
+				</div>
+				<form class="form-detail" action="/users/login" method="post" id="myform">
+					<h2>Connectez-vous</h2>
+					<div class="form-row">
+						<label for="your_email">E-mail:</label>
+						<input type="email" name="email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					</div>
+					<div class="form-row">
+						<label for="password">Mot de passe:</label>
+						<input type="password" name="password" id="password" class="input-text" required>
+					</div>
+					<div class="form-row-last">
+						<input type="submit" name="login" class="register" value="Se connecter">
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+	{{#if errors}}
+    <div class="alert alert-danger" role="alert">
+        {{errors}}
+    </div>
+	{{/if}}
 </main>

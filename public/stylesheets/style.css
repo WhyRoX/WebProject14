@@ -1,22 +1,42 @@
-/* Layout */
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  header{
-    background: #E4EDD8;
-  }
-  .navbar a {
-    text-decoration: none;
-    color: black;
-    margin: 0 15px;
-  }
+* {
+  font-family: 'Karma', serif;
+}
+
+
+/* Layout */
+.container-fluid {
+  padding: 0 !important;
+}
+
+
+#navbar-layout{
+  background: #E4EDD8;
   
-  .navbar a:last-child {
-    margin-right: 0;
-  }
+}
+.navbar ul li a {
+  font-size: 24px;
+  line-height: normal;
+  color: #000;
+}
+.navbar ul li a:hover{
+    color: #14a0e0;
+    text-decoration: underline;
+}
+
+li.nav-item {
+  margin: 0px 20px 0px 15px;
+}
+
+#navbarSupportedContent {
+  margin-left: 1%;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+
+
 
 footer {
     display: flex;
@@ -25,4 +45,129 @@ footer {
 
 footer #credits {
     text-align: center;
+}
+
+.bioImage {
+  float: left; /* ou 'right' selon la position souhaitée de l'image */
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+.container {
+  clear: both;
+  max-width: 600px;
+  margin: 20px auto; /* J'ai réduit la marge */
+  padding: 20px;
+  background: rgba(191, 213, 183, 0.63);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+  text-align: center;
+}
+
+
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.bio-button {
+  width: auto; /* Ajuste la largeur du bouton en fonction de son contenu */
+  padding: 10px 20px; /* Ajuste la taille du bouton */
+  background-color: #86CF80;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0 auto; /* Centrer le bouton horizontalement */
+  display: block; /* Assurez-vous que le bouton est affiché en tant que bloc */
+}
+
+.bio-button:hover {
+  background-color: #36ba85;
+}
+
+
+.biotext  {
+  padding-top: 100px;
+  float: left; /* ou 'right' pour le placer à côté de l'image */
+  width: 600px;
+  height: 1189.994px;
+  color: #000;
+  font-family: Karma;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  margin-left: 150px; /* Ajustez cette valeur pour l'espacement entre l'image et le texte */
+}
+.titre-bio-page h1{ 
+   color: #E9CB3D;
+  padding-top: 200px;
+
+}
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Karma', serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    
+}
+
+header {
+    background-color: #568e51;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.center-list-page{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.coach {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.coach h2 {
+    margin-top: 0;
+}
+
+.bioupdate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px; /* ajustez la taille du padding selon vos besoins */
+  font-size: 14px; /
 }

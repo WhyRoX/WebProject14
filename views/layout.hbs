@@ -8,45 +8,99 @@
     <title>VINCI COURT</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/sign.css">
+    <link rel="stylesheet" href="/stylesheets/court.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-</head>
-<header>
-    <a>
-
-    <img src="images/bannière.png"  height="150" width="100%">
-
-    </a>
-    <section class="navbar">
-<<<<<<< Updated upstream
-        <a href="tournaments/index.hbs">Tournoi</a>
-        <a href="courts/index.hbs">Terrains</a>
-        <a href="coaches/index.hbs">Coachs</a>
-=======
-        <a href="">Tournoi</a>
-        <a href="">Terrains</a>
-        <a href="">Coachs</a>
-        <div class="login">
->>>>>>> Stashed changes
-        <a href="">Se connecter</a>
-        <h6>|</h6>
-        <a href="">S'enregistrer </a>
-        </div>
-        
-
-
-            
-
-    </section>
-</header>
+    <!-- 
+    <script>
+    window.onload = function() {
+        // Set the initial zoom level
+        document.body.style.zoom = "90%"; // Adjust the percentage as needed    // Ask teacher
+    };
+    </script> -->
     
+</head>
+<body class="container-fluid">
+    <header class="container-fluid">
+        <div class="header-image">
+            <img src="/images/bannière.png" width="100%" height="150px" alt="header image">
+        </div>
+    </header>
+    
+    <nav id="navbar-layout" class="navbar navbar-expand-xl sticky-top"> <!-- change between md-lg-xl -->
+        
+            <div class="container-fluid">
 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tournaments">Tournois</a>
+                    </li>
+                    {{#if (eq session.user.status "coach")}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tournaments">Créer un tournoi</a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/courts">Terrains</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/coaches">Coachs</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav d-flex flex-row">
+                    {{#if (eq session.connected true)}}
+                    {{#if (eq session.user.status "coach")}}
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/messages">Messages</a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/coaches/bio">Profile</a>
+                    </li>
+                    {{/if}}
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/courts/booking">Réserver un terrain</a>
+                    </li>    
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/users/logout">Se déconnecter</a>
+                    </li>
+                    {{else}}    
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/users/login">Se connecter</a>
+                    </li>
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="nav-link" href="/users/register">S'enregistrer</a>
+                    </li>
+                    {{/if}}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{{body}}}
     <footer class="container-fluid">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.9740441198096!2d4.456224792231403!3d50.850164915230486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3dc842e16fa75%3A0x1fa091a826769d5a!2sCentre%20Sportif%20Mounier%20asbl!5e0!3m2!1sfr!2sbe!4v1711817538026!5m2!1sfr!2sbe"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
         <p id="credits">
-            Copyright 2024 - Vinci Court | Tous droits réservés. La reproduction non autorisée du contenu de ce site est strictement interdite. 
+            <strong>©2024 - Vinci Court</strong> | Tous droits réservés. La reproduction non autorisée du contenu de ce
+            site est strictement interdite.
+        </p>
     </footer>
 </body>
 
