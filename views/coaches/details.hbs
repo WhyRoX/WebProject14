@@ -7,15 +7,11 @@
         <div class="titre-bio-page">
             <h1>          La biographie de : {{coach.firstname}}</h1>
                         <h4>{{coach.bio }}</h4>
+                                            <td><a href="/coaches/update?user_id={{user_id}}" class="button-details">Mettre à jour</a></td>
+
 
         </div>
         <div class="biotext">
-                <div class="bioupdate">
-       {{#if session.connected}}
-        {{#if (eq session.user.status "coach")}}
-                    <td><a href="/courts/update?court_id={{user_id}}" class="button-details">Mettre à jour</a></td>
-        {{/if}}
-        {{/if}}
         </div>
         </div>
 
@@ -32,9 +28,9 @@
                     <label for="coach">Sélectionnez Un coach :</label>
                     <select id="coach" name="coach" required>
                         <option value="" selected disabled>Sélectionnez Un coach</option>
-                        <option value="pierre@example.com">Pierre</option>
-                        <option value="jean@example.com">Jean</option>
-                        <option value="marie@example.com">Marie</option>
+                        <option value="pierre@example.com">Marie</option>
+                        <option value="jean@example.com">Jimmy</option>
+                        <option value="marie@example.com">Pierre</option>
                         <!-- Ajoutez d'autres options au besoin -->
                     </select>
                 </div>
