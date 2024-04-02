@@ -1,12 +1,12 @@
 
 <Section>
-    <header>
-        <h1>Liste des Coachs</h1>
-    </header>
+    <div id="title-coach-page">
+                    <h3>Liste des Coachs de l'équipe Vinci Court</h3>
+    </div>
+
 
     {{#each coaches}}
     <div class="design-mid">
-
         {{#if (eq status "coach")}}
             <td><a href="/coaches/details?user_id={{user_id}}">{{firstname}}</a></td>
             <br>
