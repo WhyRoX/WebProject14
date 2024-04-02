@@ -62,9 +62,16 @@ footer #credits {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.containerrr {
+  clear: both;
+  max-width: 800px;
+  margin: 20px auto; /* J'ai réduit la marge */
+  border-radius: 8px;
+}
 
-.container h2 {
+.containerrr h2 {
   text-align: center;
+  padding-top: 20px;
 }
 
 
@@ -176,33 +183,57 @@ h1 {
 text-align: center;
 }
 
-/* Styling for Coach List */
-.design-mid {
-  background-color: #f9f9f9;
+
+
+#title-coach-page {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.design-mid h1 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
+#title-coach-page h3 {
+  font-size: 45px;
+  color: #75a584;
+  position: relative;
+}
+
+
+
+
+#description-coach-page {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.design-mid {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .design-mid a {
-  color: orange;
-  font-weight: bold;
   text-decoration: none;
+  color: #040506;
+  font-weight: bold;
+  font-size: 20px;
 }
-
 
 .design-mid a:hover {
   text-decoration: underline;
 }
 
-
-#title-coach-page h3 {
-  text-align: center;
-  font-size: 50px;
-  font-weight: bold;
-  color: #36a280; /* Choisissez une couleur qui correspond à votre design */
+#update-button {
+  padding-top: 25px;
 }
 
+.container-box {
+  
+  border-radius: 100px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: rgb(145, 174, 143);/* Couleur de fond */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.container-box:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
