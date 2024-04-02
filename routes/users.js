@@ -11,21 +11,33 @@ router.get('/', (req, res) => {
 
 /* GET user login page. */
 router.get('/login', (req, res) => {
+    // Save the previous page in the session if it's not already stored
+    if (!req.session.previousPage) {
+        req.session.previousPage = req.get('Referer') || '/';
+    }
     res.render('users/index.hbs', { errors: req.session.errors });
-    req.session.errors = null;// Render the login page using the same "index.hbs" file
+    req.session.errors = null;
 });
 
 /* POST user login page. */
-router.post("/login/connect", (req, res) => {
-    if (bcrypt.compareSync(req.body.password, User.login(req.body.email))) {
+router.post("/login", (req, res) => {
+    const storedPassword = User.login(req.body.email);
+    if (storedPassword && bcrypt.compareSync(req.body.password, storedPassword)) {
         req.session.connected = true;
         req.session.user = User.data(req.body.email);
-        res.redirect("/");
+        const previousPage = req.session.previousPage || "/";
+        req.session.previousPage = null;
+        res.redirect(previousPage);
     } else {
-        req.session.errors = "Mot de passe incorrect";
+        if (!storedPassword) {
+            req.session.errors = "Email incorrect";
+        } else {
+            req.session.errors = "Mot de passe incorrect";
+        }
         res.redirect("/users/login");
     }
 });
+
 
 /* GET user register page. */
 router.get('/register', (req, res) => {
@@ -47,8 +59,22 @@ router.post('/add', (req, res) => {
 
 /* GET user logout page. */
 router.get('/logout', (req, res) => {
-    req.session.destroy(); // Destroy the session
-    res.redirect('/'); // Redirect to the home page
+    // Save the current page URL in the session
+    if (!req.session.previousPage) {
+        req.session.previousPage = req.get('Referer') || '/';
+    }
+
+    // Store the previous page in a variable
+    const previousPage = req.session.previousPage;
+
+    // Destroy the session
+    req.session.destroy((err) => {
+        if (err) {
+            console.error('Error destroying session:', err); // Can be removed, ask teacher
+        }
+        // Redirect the user back to the previous page URL
+        res.redirect(previousPage);
+    });
 });
 
 module.exports = router;

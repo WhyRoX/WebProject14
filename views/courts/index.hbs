@@ -1,3 +1,42 @@
 <main>
-    <h1>Terrains</h1>
+    <body>
+        <div class="court-body">
+            <div class="container-court">
+                {{#if errors}}
+                <div class="alert alert-danger" role="alert">
+                    {{errors}}
+                </div>
+                {{/if}}
+                <h1 id="court-page-title">Nos terrains de tennis</h1>
+                <h1 id="court-page-title">FIX BODY BACK COLOR "METTRE CLASS POUR COACH stylescss l129"</h1>
+                <h5 id="court-page-h5">Informations sur les cours</h5>
+                <p id="court-page-txt">Bienvenue sur notre page de liste des courts de tennis. <br>
+                Vous trouverez ci-dessous tous les courts disponibles. <br>
+                N'hésitez pas à explorer et à choisir un court pour votre partie.
+            </p>
+                <table class="court-list">
+                    <thead>
+                        <tr>
+                        <th>Nom</th>
+                        <th>Surface</th>
+                        {{#if (eq session.user.status "coach")}}
+                        <th class="action-column">Action</th>
+                        {{/if}}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each courts}}
+                        <tr class="court-item">
+                            <td><a style ="color : orange;  font-weight: bold" href="/courts/details?court_id={{court_id}}">{{name}}</a></td>
+                            <td>{{translateFlooring flooring_type}}</td>
+                            {{#if (eq ../session.user.status "coach")}}
+                            <td><a href="/courts/update?court_id={{court_id}}" class="modify-button">Mettre à jour</a></td> 
+                            {{/if}}
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
 </main>

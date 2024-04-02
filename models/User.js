@@ -9,7 +9,8 @@ module.exports.save = (firstname, surname, email, password, status) => {
 /* Getting encrypted password by email to login */
 module.exports.login = (email) => {
     const stmt = db.prepare("SELECT password FROM users WHERE email = ?");
-    return stmt.get(email).password;
+    const user = stmt.get(email);
+    return user ? user.password : null;
 };
 
 /* Getting a user info by email */

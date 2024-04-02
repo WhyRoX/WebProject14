@@ -10,8 +10,10 @@
   padding: 0 !important;
 }
 
+
 #navbar-layout{
   background: #E4EDD8;
+  
 }
 .navbar ul li a {
   font-size: 24px;
@@ -85,7 +87,7 @@ textarea {
   resize: vertical;
 }
 
-button {
+.bio-button {
   width: auto; /* Ajuste la largeur du bouton en fonction de son contenu */
   padding: 10px 20px; /* Ajuste la taille du bouton */
   background-color: #86CF80;
@@ -97,7 +99,7 @@ button {
   display: block; /* Assurez-vous que le bouton est affiché en tant que bloc */
 }
 
-button:hover {
+.bio-button:hover {
   background-color: #36ba85;
 }
 
@@ -130,6 +132,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    
 }
 
 header {
