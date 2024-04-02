@@ -3,14 +3,12 @@
     <header>
         <h1>Liste des Coachs</h1>
     </header>
-    <div="enter-list-page"  >
-       {{#each coaches}}
-                            <td><a style ="color : orange;  font-weight: bold" href="/coaches/details?user_id={{user_id}}">{{surname}}</a></td>
-                            {{#if (eq ../session.user.status "coach")}}
-                            {{/if}}
-                            </tr>
-                        {{/each}}
-        </div>
 
-   </div>
-</Section>
+<div class="design-mid">
+    {{#each coaches}}
+        {{#if (eq status "coach")}}
+            <td><a href="/coaches/details?user_id={{user_id}}">{{firstname}}</a></td>
+            <br>
+        {{/if}}
+    {{/each}}
+</div>

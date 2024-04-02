@@ -175,3 +175,26 @@ h1 {
 #containe-center{
 text-align: center;
 }
+
+.design-mid {
+  /* Customize your table row styles here */
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.design-mid td {
+  /* Customize your table cell styles here */
+  padding: 10px;
+}
+
+/* Coach Name Link Styling */
+.design-mid a {
+  color: orange;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.design-mid a:hover {
+  /* Customize hover effect if desired */
+  text-decoration: underline;
+}

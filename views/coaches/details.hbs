@@ -5,14 +5,15 @@
         </div>
         <div id="containe-center"
         <div class="titre-bio-page">
-            <h1>          La biographie de : {{coach.surname}}</h1>
+            <h1>          La biographie de : {{coach.firstname}}</h1>
+                        <h4>{{coach.bio }}</h4>
+
         </div>
         <div class="biotext">
-            <h4>{{coach.bio }}</h4>
                 <div class="bioupdate">
        {{#if session.connected}}
         {{#if (eq session.user.status "coach")}}
-            <button type="submit">Mettre à jour </button>
+                    <td><a href="/courts/update?court_id={{user_id}}" class="button-details">Mettre à jour</a></td>
         {{/if}}
         {{/if}}
         </div>
@@ -20,6 +21,7 @@
 
         </div>
         </div>
+        <br>
 
         
         <!-- Formulaire de contact modifié -->
