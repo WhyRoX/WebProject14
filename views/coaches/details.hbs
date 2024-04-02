@@ -1,26 +1,22 @@
 <main>
     <section>
         <div class="bioImage">
-            <img src="/images/bio.png" height="800" width="250" alt="">
+                            <img src="{{coach.coach_image}}"  height="800" width="auto" alt="">
         </div>
+        <div id="containe-center"
         <div class="titre-bio-page">
-            <h1>Maître du Court : La Passion et la Précision de Pierre</h1>
+            <h1>          La biographie de : {{coach.surname}}</h1>
         </div>
         <div class="biotext">
-            <h4>Pierre, coach de tennis d'exception, allie
-                 une passion inébranlable pour le jeu à une approche pédagogique innovante.
-                  Avec plus de 15 ans d'expérience, il sculpte les compétences de ses élèves avec précision et motivation. 
-                  Sa devise : cultiver le talent, nourrir la détermination, et  construire des champions. Les séances avec 
-                  Pierre sont une immersion jusqu’à la  dans un monde où chaque swing est une chance de se transcender.
-                   Optez pour Pierre et entrez dans une aventure où le jeu devient art et l'apprentissage, une quête vers 
-                   l'excellence.” </h4>
+            <h4>{{coach.bio }}</h4>
                 <div class="bioupdate">
        {{#if session.connected}}
         {{#if (eq session.user.status "coach")}}
             <button type="submit">Mettre à jour </button>
         {{/if}}
-    {{/if}}
-</div>
+        {{/if}}
+        </div>
+        </div>
 
         </div>
         </div>
