@@ -7,9 +7,12 @@
             <div class="titre-bio-page">
                 <h1>La biographie de : {{coach.firstname}}</h1>
                 <h4>{{coach.bio }}</h4>
+                 
                 <div id="update-button"></div>
-                <td><a href="/coaches/update?user_id={{user_id}}" class="button-details">Mettre à jour</a></td>
-                </div>
+                                {{#if (eq session.user.status "coach")}}
+                            <td><a href="" class="modify-button">Mettre à jour</a></td> 
+                            {{/if}}
+
             </div>
           
         </div>
@@ -17,7 +20,8 @@
 
         <!-- Formulaire de contact modifié -->
         <div class="containerrr" style="background: rgba(191, 213, 183, 0.63);">
-            <h2>Contactez Notre Coach</h2>
+
+        <h2>Contactez Notre Coach</h2>
             <form action="formulaire" method="POST">
                 <div class="form-group">
                     <label for="coach">Sélectionnez Un coach :</label>
@@ -43,7 +47,9 @@
                 </div>
                 <button class="bio-button" type="submit">Envoyer</button>
             </form>
+                                     
         </div>
+
         <!-- Fin du formulaire de contact modifié -->
     </section>
 </main>

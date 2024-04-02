@@ -6,8 +6,9 @@ const Coach = require('../models/Coach.js');
 router.get('/', (req, res) => {
   const errors = req.session.errors;
   req.session.errors = null;
-    res.render('coaches/index.hbs', { session: req.session,  coaches: Coach.info(), errors: errors });
+    res.render('coaches/index.hbs', {  coaches: Coach.info(), errors: errors });
 });
+
 
 router.get('/details', (req, res) => {
     const userId = req.query.user_id;
@@ -21,24 +22,17 @@ router.get('/details', (req, res) => {
   
     const coach = Coach.findById(userId);
   
-    // Check if court exists
+    // Check if coach exists
     if (!coach) {
-      req.session.errors = 'Court not found';
+      req.session.errors = 'Coach not found';
       res.redirect('/coaches');
       return;
     }
-  
+
+
     res.render('coaches/details.hbs', { coach });
   });
 
-
-router.get('/bio', (req, res) => {
-    res.render('coaches/details.hbs', { session: req.session });
-});
-
-router.get('/bio/send', (req, res) => {
-    res.render('coaches/index.hbs', { session: req.session });
-});
 
 
 module.exports = router;

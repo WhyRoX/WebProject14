@@ -9,4 +9,3 @@ module.exports.findById = (user_id) => {
     const stmt = db.prepare("SELECT * FROM users WHERE user_id = ?");
     return stmt.get(user_id);
 };
-
