@@ -1,32 +1,31 @@
 <section>
-    <h1>Liste des Tournois</h1>
+    <h1 id="titleTournamentZak">Liste des Tournois</h1>
 
-    <p>Chaque tournoi est unique en son genre,
+    <p id="introTournament">Chaque tournoi est unique en son genre,
     et c'est là toute sa beauté ; il est un univers à part où règnent l'excitation,
     la compétition et l'imprévisibilité. À chaque rencontre, à chaque échange, à chaque point,
     se cache une surprise, un moment de suspense qui fait battre les cœurs des spectateurs et des 
     compétiteurs. Les tournois sont des théâtres où se jouent des histoires inattendues, des retournements
-    de situation époustouflants, et c'est ce qui les rend si passionnants et si mémorables.haque tournoi
-    est unique en son genre </p>
+    de situation époustouflants, les rendant unique en leur genre </p>
 
 
 
-    <p>Voici la liste des tournois que nous proposons</p>
+    <p id="listTournament">Voici la liste des tournois que nous proposons : </p>
 
 
-    <table>
-        <tr>
+    <table id="tableTournament">
+        <tr id="trTournament">
             <th>Id du tournoi</th>
             <th>Nom </th>
             <th>Date</th>
-            <th>Nombre maximum de participants</th>
+            <th>Nombre max</th>
         </tr>
         {{#each tournamentsTable}}
         <tr>
             <td>{{this.tournament_id}}</td>
-            <td><a href="http://localhost:3000/exoplanets/details?id={{this.exoplanet_id}}"> {{this.unique_name}} </a></td>
-            <td>{{this.date}} </td>
-            <td>{{this.maximum}} </td>
+            <td><a href="http://localhost:3000/exoplanets/details?id={{this.tournament_id}}"> {{this.name}} </a></td>
+            <td>{{this.tournament_date}} </td>
+            <td>{{this.max_person}} </td>
         </tr>
         {{/each}}
     </table>

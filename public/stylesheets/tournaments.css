@@ -1,0 +1,24 @@
+#titleTournamentZak{
+    font-style: italic;
+    text-align: center;
+    padding-top: 20px;  
+}
+
+#introTournament{
+    text-align: center;
+    font-size: 20px; 
+}
+
+#listTournament{
+    margin-left: 50px;
+    font-size: 30px;
+}
+
+#tableTournament{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#trTournament{
+font-size: 20px;
+}
